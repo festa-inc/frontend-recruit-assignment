@@ -84,7 +84,7 @@ Next.js 프레임워크 기반의 boilerplate 이기 때문에 Next.js의 기본
 - Form의 필수 사항
   - 이벤트 제목:  `name: string!`
   - 호스트(주최자) 이메일: `hostEmail: string!`
-  - 가격: `price: string!` - 티겟가격은 무료(0원) 이거나 최소 100원 이상, 최대 1,000,000원 이하, 
+  - 가격: `price: number!` - 티겟가격은 무료(0원) 이거나 최소 100원 이상, 최대 1,000,000원 이하, 
 - 보너스 도전 과제
   - 이벤트 이미지 URL: `image:Url string? ` - 이미지를 업로드 하는 api를 통해서 이미지를 업로드 한 뒤 url을 받은 다음 해당 url까지 전송을 하세요.
   - 시작 날짜 및 시간: `startDate: Date?` - 시작 날짜를 안보내면, 서버에서 기본 으로 날짜를 넣어줍니다.
