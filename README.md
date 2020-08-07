@@ -230,8 +230,8 @@ https://recruit.festa.dev/ABCDE/events
 
      name에 반드시 파일 이름을 넣어서, 서버가 확장자를 인지할 수 있도록 해줍니다. 
 
-  
-  
+  form, multipart 등의 방법을 사용하지 않으며, 단순히 Body 에 직접 파일을 보내면 됩니다.
+  단,  Query string 의 name 필드에 반드시 파일명과 확장자를 입력해줘야 합니다.
   
 
 ---
