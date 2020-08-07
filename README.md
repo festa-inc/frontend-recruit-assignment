@@ -13,16 +13,27 @@ Festa는 이벤트를 생성하고 참여하고 볼 수 있는 서비스 입니�
 
   
 
+### 고려사항
+
+- React/Next.js Component Lifecycle의 적절한 활용
+- 각종 Form Validation 및 Error Message에 신경 쓰기
+- 적절한 상태관리, 의존성 관리, 아키텍쳐 관련 방법론과 디자인 패턴에 대한 이해 및 적용
+- 의미 있는/적절히 분리된 commit 및 commit message
+- 가독성 있는 코드 및 가독성 있는 함수/변수/컴포넌트 이름
+
+​    
+
 ### 웹이 지원해야 하는 범위
 
-여러분은 데스크탑 버전만 지원을 하면 되며 브라우저 중 IE는 지원 하지 않아도 됩니다.
+- Desktop Only
+- IE는 지원하지 안항도 됨.
 
   
 
 
-### 보일러플레이트에 대한 설명
+### Boilerplate에 대한 설명
 
-Boilerplate를 저희 실제 서비스에 가장 가까운 형태인 React + TypeScript + Next.js로 드립니다. 만약 이 boilerplate을 사용하고싶지 않으시다면 새로운 프로젝트를 생성하신 뒤에 다시 작성을 해도 무방합니다. 다른 Boilerplate를 사용하고 싶으시다면 (ex: create-react-app) 사용 해도 무방 합니다. 
+Boilerplate는 Festa 실제 서비스에 가장 가까운 형태인 React + TypeScript + Next.js로 구성됩니다. 만약 이 boilerplate을 사용하고싶지 않으시다면 사용하지 않으시고 새로운 . 다른 Boilerplate를 사용하고 싶으시다면 (ex: create-react-app) 사용 해도 무방 합니다. 
 
 만약에 React 말고 다른 라이브러리/프레임워크를 사용 하거나, Vanilla JavaScript를 사용 하고 싶으시다면 그래도 무방합니다.
 
@@ -227,22 +238,9 @@ https://recruit.festa.dev/ABCDE/events
 
   
 
-## 기타 
 
 
-### 코딩을 하면서 고려 해볼 만한 사항
-
-- React/Next.js Component Lifecycle의 적절한 활용
-- 각종 Form Validation 및 에러 메세지에 신경 쓰기
-- 적절한 의존성 관리와 아키텍쳐 관련 방법론과 패턴에 대한 이해 및 적용
-- 의미 있는/적절한 commit 및 commit message
-- 가독성 있는 코드 및 가독성 있는 함수 변수 컴포넌트 이름 
-
-    
-
-
-
-### 초 울트라 보너스 도전 과제
+  ## 초 울트라 보너스 도전과제
 
 혹시 과제가 너무 쉬웠다면 다음을 도전 해보세요.
 
