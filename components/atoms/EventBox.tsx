@@ -7,5 +7,6 @@ const EventBox = styled.div`
     border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
+    margin-bottom: 25px;
 `
 export {EventBox}
