@@ -1,22 +1,18 @@
+import Link from 'next/link'
 import React,{FC} from 'react'
 
 import EventCard,{EventCardProps} from '../organisms/EventCard'
-
-const Events = ()=>{
-    const dm = {
-        "id": 868,
-        "name": "GitHub 사용자 교육(Live Webinar)",
-        "price": 0,
-        "startDate": "2020-04-09T11:00:00.000Z",
-        "imageUrl": "https://cf.festa.io/img/2020-4-3/c58293e3-1b8a-4c21-922c-58cd361a0e8e.png",
-        "email": "test@test.gmail"
-    }
+interface EventDatas{
+    data:EventCardProps[]
+}
+const Events:FC<EventDatas> =(props)=>{
+    const evetnCards = props.data.map((data)=><EventCard {...data} key={data.id}/> )
     return (
-        <div>
-            <EventCard {...dm}/>
+        <div style={{height:"100%", display:'flex', flexDirection:"column"}}>
+            <Link href="/events">이벤트 목록</Link>
+            <Link href="/create">이벤트 생성하기</Link>
+            {evetnCards}
         </div>
-            
-       
     )
 }
 
