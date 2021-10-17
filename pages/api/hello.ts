@@ -5,11 +5,12 @@ type Data = {
   name: string
 }
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log("test");
-  
-  res.status(200).json({ name: 'John Doe' })
+  const {page} = req.query
+  const res1 = await fetch(`http://13.124.24.197/AE391/events?first=20&skip=${Number(page)*20}`)
+  const data = await res1.json()
+  res.status(200).json(data)
 }

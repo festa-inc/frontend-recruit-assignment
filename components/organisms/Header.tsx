@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -15,13 +16,16 @@ const TabBar = styled.div`
 
 `
 const Header = ()=>{
+    // const page = window.location.pathname
+    const router = useRouter()
+    const page = router.pathname
     return (
         <div>
             <TabBar>
-                <HeaderSpan bold>
+                <HeaderSpan bold={page=="/events"}>
                     <Link href="/events">이벤트 목록</Link>
                 </HeaderSpan>
-                <HeaderSpan>
+                <HeaderSpan bold={page=="/create"}>
                     <Link href="/create">이벤트 생성하기</Link>
                 </HeaderSpan>
             </TabBar>
