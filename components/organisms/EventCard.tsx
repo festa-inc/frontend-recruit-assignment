@@ -1,5 +1,4 @@
 import React,{FC} from 'react'
-import {TitleSpan,NormalSpan} from '../atoms/EventSpan'
 import CoverImage from '../molecules/CoverImage'
 import {EventBox} from '../atoms/EventBox'
 import EventInfo from '../molecules/EventInfo'

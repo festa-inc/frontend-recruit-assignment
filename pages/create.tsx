@@ -1,13 +1,14 @@
 import type { NextPage } from 'next'
-import {EventBox} from '../components/atoms/EventBox'
+import React from 'react'
+import Create from '../components/template/Create'
 import styles from '../styles/Home.module.css'
 
-const Create: NextPage = () => {
+const CreatePage: NextPage = () => {
   return (
     <div className={styles.container}>
-      이벤트를 생성하자구
+      <Create/>
     </div>
   )
 }
 
-export default Create
+export default CreatePage

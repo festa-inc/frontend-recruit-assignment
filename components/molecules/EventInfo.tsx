@@ -1,5 +1,5 @@
 import React,{FC} from 'react'
-import {TitleSpan,NormalSpan} from '../atoms/EventSpan'
+import {TitleSpan,NormalSpan} from '../atoms/Span'
 import {EventInfoContainer} from '../atoms/EventInfoContainer'
 
 

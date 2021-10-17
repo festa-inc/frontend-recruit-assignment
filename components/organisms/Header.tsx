@@ -20,7 +20,7 @@ const Header = ()=>{
     const router = useRouter()
     const page = router.pathname
     return (
-        <div>
+        <div style={{width:"1108px"}}>
             <TabBar>
                 <HeaderSpan bold={page=="/events"}>
                     <Link href="/events">이벤트 목록</Link>
