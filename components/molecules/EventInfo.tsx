@@ -15,7 +15,7 @@ const EventInfo:FC<EventInfoProps> = (props) =>{
     const dayList = ['일','월','화','수','목','금','토']
     const noon = date.getHours()/12>1? "오후":"오전"
     const hour = parseInt(String((date.getHours()%12)))
-    const price = props.price>0? props.price+"원":"무료"
+    const price = props.price>0? props.price.toLocaleString()+"원":"무료"
     
     
     return(
