@@ -15,7 +15,7 @@ const Events: NextPage = ({data}:any) => {
 
 
 export async function getStaticProps() {
-  const res = await fetch(`http://13.124.24.197/AE391/events?first=10&skip=0`)
+  const res = await fetch(`http://13.124.24.197/AE391/events?first=20&skip=0`)
   const data = await res.json()
   
   if (!data) {
