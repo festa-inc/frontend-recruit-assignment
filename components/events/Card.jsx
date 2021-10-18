@@ -18,7 +18,7 @@ function Card(props) {
             <InfoWrapper>
                 <strong>{props.name}</strong>
                 <p>{EventService.setStartDate(props.startDate)}</p>
-                <p>{props.email}</p>
+                <p>호스트 연락처: {props.email}</p>
                 <p>{EventService.setPrice(props.price)}</p>
             </InfoWrapper>
         </Wrapper>
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   }
 `
 const ImgWrapper = styled.div`
-  width: 20%;
+  width: 25%;
   height: 10rem;
   background-image: url(${(props) => props.url});
   background-size: cover;
@@ -50,6 +50,7 @@ const ImgWrapper = styled.div`
     object-fit: cover;
     @media all and (max-width: 480px) {
         width: 100%;
+        height: 8rem;
         margin: 0 auto;
   }
 `

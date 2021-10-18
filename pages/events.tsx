@@ -12,11 +12,11 @@ interface Event {
   email: string,
   price: number
 }
-interface Props {
+interface EventList {
   list: Event[]
 }
 export const getStaticProps = async () => {
-  const res = await fetch("http://13.124.24.197/390QA/events?first=10&skip=0")
+  const res = await fetch("http://13.124.24.197/390QA/events?first=20&skip=0")
   const data = await res.json()
   return {
     props: {
@@ -24,7 +24,7 @@ export const getStaticProps = async () => {
     }
   }
 }
-const EventPage: FC<Props> = (props) => {
+const EventPage: FC<EventList> = (props) => {
     const [eventList, setEventList] = useState(props.list);
     const { ref, inView } = useInView({
         threshold: 0,
@@ -57,25 +57,28 @@ const EventPage: FC<Props> = (props) => {
       };
     return (
       <Wrapper>
-      {
-        eventList.map((event, index) => (
-          eventList.length -1 === index ? (
-              <div style={{width:"100%"}} 
-                  key={event.id} 
-                  ref={ref}
-              >
-                <Card 
-                  {...event}
-                />
-              </div> 
-          ): (
-            <Card 
-              key={event.id} 
-              {...event}
-          />
-          )
-        ))
-      }
+        <h2>이벤트 목록</h2>
+        <EventWrapper>
+        {
+          eventList.map((event, index) => (
+            eventList.length -1 === index ? (
+                <div style={{width:"100%"}} 
+                    key={event.id} 
+                    ref={ref}
+                >
+                  <Card 
+                    {...event}
+                  />
+                </div> 
+            ): (
+              <Card 
+                key={event.id} 
+                {...event}
+              />
+            )
+          ))
+        }
+        </EventWrapper>
       </Wrapper>
     )
 }
@@ -83,8 +86,11 @@ const EventPage: FC<Props> = (props) => {
 export default EventPage
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
+`
+const EventWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `
