@@ -33,7 +33,6 @@ const makeCalender = (year:string, month:string)=>{
   return dates
 }
 const DateComponent = (props:any)=>{
-  const [dateState, setDateState] = useState(false)
   const compDate = (d1:Date,d2:Date)=>{
     if(d2){ 
       return d1.getFullYear() === d2.getFullYear() &&
@@ -52,18 +51,18 @@ const DateComponent = (props:any)=>{
     } else {
       props.startHandler(props.date)
     }
-    console.log(props.startDate, props.endDate,"????????????????????");
-    console.log(props.startDate==props.date);
     
   }
+  const isBetween = ()=>{
+    return props.startDate<props.date&&props.endDate>props.date
+  }
   return (
-    <DateDiv onClick={dateHandler} selected={compDate(props.date,props.startDate)||compDate(props.date,props.endDate)}>{props.children}</DateDiv>
+    <DateDiv onClick={dateHandler} between={isBetween()} selected={compDate(props.date,props.startDate)||compDate(props.date,props.endDate)}>{props.children}</DateDiv>
   )
 }
 const CalenderContent = (props:any)=>{
   const year = props.year
   const month = props.month
-  console.log(props.props);
   const dayList = ['일','월','화','수','목','금','토']
   const dayComponents = dayList.map((d,idx)=><DayDiv children={d} key={idx}/>)
   const dates = makeCalender(year,month)
@@ -110,11 +109,9 @@ const Calender =(props:any) =>{
       setMonth(12)
       setYear(year-1)
     }else{
-      setMonth(month-11)
+      setMonth(month-1)
     }
   }
-  console.log(props.props);
-  
   return(
     <CalenderContentWrap>      
       <SelectInfoSpan>
@@ -166,7 +163,6 @@ const DatePicker: FC<DatePickerProps> = () => {
   const [endDate, setEndDate] = useState<Date| undefined>()
 
   const handleStartDatePicked = (sdate:Date)=>{
-    console.log(sdate);
     
     setStartDate(sdate)
     if(endDate&&sdate>endDate){
@@ -278,7 +274,7 @@ const DateContainer = styled.div`
   align-items: center;
   margin-top: 1px;
 `
-const DateDiv = styled.div<{selected:boolean}>`
+const DateDiv = styled.div<{selected:boolean,between:boolean}>`
   width: 44.43px;
   height: 44.33px;
   display: flex;
@@ -289,7 +285,7 @@ const DateDiv = styled.div<{selected:boolean}>`
   cursor: pointer;
   border-radius: ${(props)=>props.selected?"50%":""};
   border-color: ${(props)=>props.selected?"rgb(78, 117, 255)":""};
-  background-color:${(props)=>props.selected?"rgb(78, 117, 255)":""};
+  background-color:${(props)=>props.selected?"rgb(78, 117, 255)":(props.between?"rgb(211, 221, 255)":"")};
   color: ${(props)=>props.selected?"rgb(255, 255, 255)":""};
   :hover{
     border-radius: 50%;
