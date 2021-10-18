@@ -8,7 +8,7 @@ export default {
 } as Meta
 
 const Template: Story<DatePickerProps> = (args) => {
-  return <DatePicker {...args} />
+  return <DatePicker {...args}/>
 }
 
 export const DatePickerDefault = Template.bind({})
