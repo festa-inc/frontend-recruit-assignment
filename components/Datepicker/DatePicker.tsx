@@ -4,9 +4,6 @@ import Calendar from './Calendar'
 
 export interface DatePickerProps {
   value: Date,
-  showing: boolean,
-  disabled: boolean,
-  displayDate: Date,
   onStartDatePicked: (sdate: Date) => void,
   onEndDatePicked: (edate: Date) => void
 }
