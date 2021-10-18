@@ -33,7 +33,16 @@ const makeCalender = (year:string, month:string)=>{
   return dates
 }
 const DateComponent = (props:any)=>{
-  const [dateState, setDateState] = useState(true)
+  const [dateState, setDateState] = useState(false)
+  const compDate = (d1:Date,d2:Date)=>{
+    if(d2){ 
+      return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+    }
+    return false
+  }
+  // setDateState(checkDate())
   const dateHandler =()=>{
     if(props.startDate){
       props.endHandler(props.date)
@@ -44,11 +53,11 @@ const DateComponent = (props:any)=>{
       props.startHandler(props.date)
     }
     console.log(props.startDate, props.endDate,"????????????????????");
+    console.log(props.startDate==props.date);
     
   }
-
   return (
-    <DateDiv onClick={dateHandler} selected={dateState}>{props.children}</DateDiv>
+    <DateDiv onClick={dateHandler} selected={compDate(props.date,props.startDate)||compDate(props.date,props.endDate)}>{props.children}</DateDiv>
   )
 }
 const CalenderContent = (props:any)=>{
@@ -59,7 +68,7 @@ const CalenderContent = (props:any)=>{
   const dayComponents = dayList.map((d,idx)=><DayDiv children={d} key={idx}/>)
   const dates = makeCalender(year,month)
   const dateComponents = dates.map((d,idx)=>{
-    const date = new Date(year,month+1, d)
+    const date = new Date(year,month-1, d)
     return (<DateContainer key={idx}>
       {d==0?"":<DateComponent 
         date={date}
@@ -278,7 +287,10 @@ const DateDiv = styled.div<{selected:boolean}>`
   -webkit-box-align: center;
   align-items: center;
   cursor: pointer;
-  
+  border-radius: ${(props)=>props.selected?"50%":""};
+  border-color: ${(props)=>props.selected?"rgb(78, 117, 255)":""};
+  background-color:${(props)=>props.selected?"rgb(78, 117, 255)":""};
+  color: ${(props)=>props.selected?"rgb(255, 255, 255)":""};
   :hover{
     border-radius: 50%;
     border: solid 1px rgb(196,200,240);
