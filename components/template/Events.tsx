@@ -11,7 +11,7 @@ const Events:FC<EventDatas> =(props)=>{
     const [page, setPage] = useState(0)
 
     const getEventsData = async (pageNum:number)=>{
-        const res = await fetch(`/api/getevent?page=${pageNum}`)
+        const res = await fetch(`/api/getevents?page=${pageNum}`)
         const data = await res.json()
         setEventData(data)
     }
